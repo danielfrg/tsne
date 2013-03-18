@@ -5,7 +5,7 @@ A python wrapper for [Barnes-Hut t-SNE](http://homepage.tudelft.nl/19j49/t-SNE.h
 
 The modifications to the original [C++ source](http://homepage.tudelft.nl/19j49/t-SNE_files/bh_tsne.tar.gz) are minimal: See the diff for the second overall commit.
 
-Differently to an already existing [wrapper](https://github.com/ninjin/barnes-hut-sne), I use [cython](cython.org).
+Differently to an already existing [wrapper](https://github.com/ninjin/barnes-hut-sne), I use [cython](http://www.cython.org).
 
 Requirements
 ------------
@@ -17,7 +17,7 @@ Requirements
 
 Building
 --------
-In the subdirectory(!) ```py_bh-tsne/```, run ```make```. Make sure that your openblas library is available. (Or any other BLAS library, but then changes in ```py_bh-tsne/setup.py``` are necessary.)  If necessary, change ```include_dirs``` and/or ```library_dirs``` in ```py_bh-tsne/setup.py```.
+In the subdirectory(!) ```py_bh-tsne/```, run ```make```. Make sure that your openblas library is available. Or any other BLAS library, but then changes in ```py_bh-tsne/setup.py``` are necessary. If necessary change ```include_dirs``` and/or ```library_dirs``` in ```py_bh-tsne/setup.py```.
 
 
 Testing
