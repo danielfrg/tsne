@@ -17,7 +17,7 @@ Requirements
 
 Building
 --------
-In the subdirectory(!) ```fasttsne/```, run ```make```. Make sure that your openblas library is available. Or any other BLAS library, but then changes in ```fasttsne/setup.py``` are necessary. If necessary change ```include_dirs``` and/or ```library_dirs``` in ```fasttsne/setup.py```.
+In the subdirectory(!) ```fasttsne/```, run ```make```. Make sure that your openblas library is available. Or any other BLAS library, but then changes in ```fasttsne/setup.py``` are necessary (change ```include_dirs``` and/or ```library_dirs```). 
 
 
 Testing
