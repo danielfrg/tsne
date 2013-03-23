@@ -1,7 +1,7 @@
 Summary
 =======
 
-A python wrapper for [Barnes-Hut t-SNE](http://homepage.tudelft.nl/19j49/t-SNE.html). The wrapper was successfully tested on OSX (10.6), Ubuntu (11.04) and Arch Linux.
+A python wrapper for [Barnes-Hut t-SNE](http://homepage.tudelft.nl/19j49/t-SNE.html). The wrapper was successfully tested on OSX (10.6/10.7), Ubuntu (11.04) and Arch Linux.
 
 The modifications to the original [C++ source](http://homepage.tudelft.nl/19j49/t-SNE_files/bh_tsne.tar.gz) are minimal: See the diff for the second overall commit.
 
