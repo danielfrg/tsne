@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-from py_bh_tsne import fast_tsne
+from fasttsne import fast_tsne
 
 
 f = gzip.open("mnist.pkl.gz", "rb")

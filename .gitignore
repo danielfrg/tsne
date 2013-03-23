@@ -1,5 +1,4 @@
-*.swp
-*.pyc
-*.so
-_py_bh_tsne.cpp
-*.png
+*/*.so
+*/build/
+fasttsne/fasttsne.cpp
+*.pkl.gz

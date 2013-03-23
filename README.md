@@ -17,12 +17,12 @@ Requirements
 
 Building
 --------
-In the subdirectory(!) ```py_bh-tsne/```, run ```make```. Make sure that your openblas library is available. Or any other BLAS library, but then changes in ```py_bh-tsne/setup.py``` are necessary. If necessary change ```include_dirs``` and/or ```library_dirs``` in ```py_bh-tsne/setup.py```.
+In the subdirectory(!) ```fasttsne/```, run ```make```. Make sure that your openblas library is available. Or any other BLAS library, but then changes in ```fasttsne/setup.py``` are necessary. If necessary change ```include_dirs``` and/or ```library_dirs``` in ```fasttsne/setup.py```.
 
 
 Testing
 -------
-For testing the algorithm run ```python test.py``` after a successful build. Note that the file ```mnist.pkl.gz``` has to be in the main directory. You can download it from [here](http://deeplearning.net/data/mnist/mnist.pkl.gz).
+For testing the algorithm, add ```fasttsne/``` to your ```PYTHONPATH``` and run ```python test.py``` after a successful build. Note that the file ```mnist.pkl.gz``` has to be in the main directory. You can download it from [here](http://deeplearning.net/data/mnist/mnist.pkl.gz).
 
 
 More Information
