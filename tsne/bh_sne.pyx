@@ -8,12 +8,12 @@ cdef extern from "tsne.h":
         void run(double* X, int N, int D, double* Y, int no_dims, double perplexity, double theta)
 
 
-cdef class _TSNE:
+cdef class BH_SNE:
     cdef TSNE* thisptr # hold a C++ instance
-    
+
     def __cinit__(self):
         self.thisptr = new TSNE()
-    
+
     def __dealloc__(self):
         del self.thisptr
 
