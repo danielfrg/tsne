@@ -1,4 +1,23 @@
+# Python Specific
 */*.so
 */build/
-fasttsne/fasttsne.cpp
-*.pkl.gz
+*/*.py[cod]
+__pycache__
+
+# Coverage
+.coverage
+htmlcov
+
+# Docs
+docs/_build
+docs/_static
+docs/_templates
+
+dist/
+
+# Mr Developer
+*.sublime*
+.idea
+
+# Project specific
+tsne/bh_sne.cpp
