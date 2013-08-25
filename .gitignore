@@ -13,7 +13,9 @@ docs/_build
 docs/_static
 docs/_templates
 
+# Dist
 dist/
+MANIFEST
 
 # Mr Developer
 *.sublime*

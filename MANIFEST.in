@@ -1,0 +1,3 @@
+include LICENSE.txt
+include tsne/bh_tsne.pyx
+recursive-include tsne *.cpp *.h

@@ -6,7 +6,7 @@ Python library containing T-SNE algorithms.
 Algorithms
 ----------
 
-### [Barnes-Hut-SNE]
+### Barnes-Hut-SNE
 
 A python ([cython](http://www.cython.org)) wrapper for [Barnes-Hut-SNE](http://homepage.tudelft.nl/19j49/t-SNE.html) aka fast-tsne.
 
@@ -37,7 +37,7 @@ from tsne import bh_sne
 X_2d = bh_sne(X)
 ```
 
-[Iris example]()
+[Iris example](http://nbviewer.ipython.org/urls/raw.github.com/danielfrg/py_tsne/master/examples/iris.ipynb)
 
 More Information
 ----------------
