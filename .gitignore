@@ -31,7 +31,7 @@ nosetests.xml
 *.mo
 
 # IPython Notebook
-*-checkpoint.ipynb
+.ipynb_checkpoints
 
 # Project specific
 tsne/bh_sne.cpp
