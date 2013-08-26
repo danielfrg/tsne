@@ -1,25 +1,38 @@
-# Python Specific
-*/*.so
-*/build/
-*/*.py[cod]
-__pycache__
+*.py[cod]
 
-# Coverage
-.coverage
-htmlcov
+# C extensions
+*.so
 
-# Docs
-docs/_build
-docs/_static
-docs/_templates
-
-# Dist
-dist/
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
 MANIFEST
 
-# Mr Developer
-*.sublime*
-.idea
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# IPython Notebook
+*-checkpoint.ipynb
 
 # Project specific
 tsne/bh_sne.cpp
+*.pkl.gz
