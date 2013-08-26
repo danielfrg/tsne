@@ -37,7 +37,10 @@ from tsne import bh_sne
 X_2d = bh_sne(X)
 ```
 
-[Iris example](http://nbviewer.ipython.org/urls/raw.github.com/danielfrg/py_tsne/master/examples/iris.ipynb)
+### Examples
+
+* [Iris](http://nbviewer.ipython.org/urls/raw.github.com/danielfrg/py_tsne/master/examples/iris.ipynb)
+* [MNIST](http://nbviewer.ipython.org/urls/raw.github.com/danielfrg/py_tsne/master/examples/mnist.ipynb)
 
 More Information
 ----------------
