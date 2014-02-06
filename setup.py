@@ -23,7 +23,7 @@ else:
                    include_dirs=[numpy.get_include(), '/usr/local/include', 'tsne/bh_sne_src/'],
                    library_dirs=['/usr/local/lib'],
                    extra_compile_args=['-msse2', '-O3', '-fPIC', '-w'],
-                   extra_link_args=['-lopenblas'],
+                   extra_link_args=['-lcblas'],
                    language='c++')]
 
 setup(
@@ -39,8 +39,9 @@ setup(
     cmdclass={'build_ext': build_ext},
     long_description=open('README.txt').read(),
     install_requires=[
-        'Cython==0.19.1',
-        'numpy==1.7.1',
-        'scipy==0.12.0'
+        'Cython>=0.19.1',
+        'numpy>=1.7.1',
+        'scipy>=0.12.0'
     ],
 )
+
