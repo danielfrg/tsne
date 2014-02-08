@@ -17,15 +17,25 @@ The wrapper was successfully tested on OSX (10.6/10.7), Ubuntu (11.04) and Arch 
 Requirements
 ------------
 
-* [numpy](numpy.scipy.org)==1.7.1
-* [scipy]()==0.12.0
-* [cython](cython.org)===0.19.1
-* [openblas](https://github.com/xianyi/OpenBLAS). Tested version is v0.2.5 and v0.2.6 (not necessary for OSX).
+* [numpy](numpy.scipy.org)>=1.7.1
+* [scipy](http://www.scipy.org/)>=0.12.0
+* [cython](cython.org)>=0.19.1
+* [cblas](http://www.netlib.org/blas/) or [openblas](https://github.com/xianyi/OpenBLAS). Tested version is v0.2.5 and v0.2.6 (not necessary for OSX).
 
 Installation
 ------------
 
-`pip install tsne`
+You can install the package from [PyPI](https://pypi.python.org/pypi):
+
+```
+pip install tsne
+```
+
+Or directly from the Github repository:
+
+```
+pip install git+https://github.com/danielfrg/tsne.git
+```
 
 Usage
 -----
@@ -44,4 +54,6 @@ X_2d = bh_sne(X)
 
 More Information
 ----------------
-See *Barnes-Hut-SNE*, L.J.P. van der Maaten. It is available on [arxiv](http://arxiv.org/abs/1301.3342).
+
+See *Barnes-Hut-SNE* (2013), L.J.P. van der Maaten. It is available on [arxiv](http://arxiv.org/abs/1301.3342).
+
