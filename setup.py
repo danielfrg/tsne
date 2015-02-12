@@ -1,19 +1,28 @@
 # encoding: utf-8
-import numpy
+import sys
+import platform
 from distutils.core import setup
 from distutils.extension import Extension
+
+import numpy
 from Cython.Distutils import build_ext
-import sys
 
 DESCRIPTION = 'TSNE implementations for python'
 
 
 if sys.platform == 'darwin':
+    v, _, _ = platform.mac_ver()
+    v1, v2, v3 = [float(val) for val in v.split('.')]
+
+    if v2 == 10:
+      extra_compile_args=['-I/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers']
+    else:
+      extra_compile_args=['-I/System/Library/Frameworks/vecLib.framework/Headers']
     ext_modules = [Extension(
                    name='bh_sne',
                    sources=['tsne/bh_sne_src/quadtree.cpp', 'tsne/bh_sne_src/tsne.cpp', 'tsne/bh_sne.pyx'],
                    include_dirs=[numpy.get_include(), 'tsne/bh_sne_src/'],
-                   extra_compile_args=['-I/System/Library/Frameworks/vecLib.framework/Headers'],
+                   extra_compile_args=extra_compile_args,
                    extra_link_args=['-Wl,-framework', '-Wl,Accelerate', '-lcblas'],
                    language='c++')]
 else:
