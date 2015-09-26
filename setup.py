@@ -1,23 +1,27 @@
 # encoding: utf-8
 import sys
 import platform
+
+from setuptools import find_packages
 from distutils.core import setup
 from distutils.extension import Extension
 
+import versioneer
 import numpy
 from Cython.Distutils import build_ext
 
-DESCRIPTION = 'TSNE implementations for python'
-
 
 if sys.platform == 'darwin':
+    # OS X
     v, _, _ = platform.mac_ver()
     v1, v2, v3 = [float(val) for val in v.split('.')]
 
     if v2 == 10:
-      extra_compile_args=['-I/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers']
+        # More than 10.10
+        extra_compile_args=['-I/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers']
     else:
-      extra_compile_args=['-I/System/Library/Frameworks/vecLib.framework/Headers']
+        extra_compile_args=['-I/System/Library/Frameworks/vecLib.framework/Headers']
+
     ext_modules = [Extension(
                    name='bh_sne',
                    sources=['tsne/bh_sne_src/quadtree.cpp', 'tsne/bh_sne_src/tsne.cpp', 'tsne/bh_sne.pyx'],
@@ -26,6 +30,7 @@ if sys.platform == 'darwin':
                    extra_link_args=['-Wl,-framework', '-Wl,Accelerate', '-lcblas'],
                    language='c++')]
 else:
+    # LINUX
     ext_modules = [Extension(
                    name='bh_sne',
                    sources=['tsne/bh_sne_src/quadtree.cpp', 'tsne/bh_sne_src/tsne.cpp', 'tsne/bh_sne.pyx'],
@@ -35,22 +40,22 @@ else:
                    extra_link_args=['-lcblas'],
                    language='c++')]
 
-setup(
-    name='tsne',
-    version='0.1.1',
-    maintainer='Daniel Rodriguez',
-    maintainer_email='df.rodriguez143@gmail.com',
-    url='https://github.com/danielfrg/py_tsne',
-    packages=['tsne'],
-    ext_modules=ext_modules,
-    description=DESCRIPTION,
-    license='see LICENCE.txt',
-    cmdclass={'build_ext': build_ext},
-    long_description=open('README.txt').read(),
-    install_requires=[
-        'Cython>=0.19.1',
-        'numpy>=1.7.1',
-        'scipy>=0.12.0'
-    ],
-)
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
 
+cmdclass = versioneer.get_cmdclass()
+cmdclass['build_ext'] = build_ext
+
+setup(name='tsne',
+      version=versioneer.get_version(),
+      cmdclass=versioneer.get_cmdclass(),
+      description='TSNE implementations for python',
+      long_description='',
+      author='Daniel Rodriguez',
+      author_email='df.rodriguez@gmail.com',
+      url='https://github.com/danielfrg/py_tsne',
+      license='Apache 2.0',
+      packages=find_packages(),
+      ext_modules=ext_modules,
+      install_requires=required
+)
