@@ -41,3 +41,7 @@ def bh_sne(data, pca_d=None, d=2, perplexity=30., theta=0.5):
     tsne = BH_SNE()
     Y = tsne.run(X, N, X.shape[1], d, perplexity, theta)
     return Y
+
+from ._version import get_versions
+__version__ = get_versions()['version']
+del get_versions
