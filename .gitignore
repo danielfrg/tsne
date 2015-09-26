@@ -36,3 +36,4 @@ nosetests.xml
 # Project specific
 tsne/bh_sne.cpp
 *.pkl.gz
+.cache
