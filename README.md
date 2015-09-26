@@ -10,17 +10,17 @@ Algorithms
 
 A python ([cython](http://www.cython.org)) wrapper for [Barnes-Hut-SNE](http://homepage.tudelft.nl/19j49/t-SNE.html) aka fast-tsne.
 
-I basicly took [osdf code](https://github.com/osdf/py_bh_tsne) and made it pip compilant.
-
-The wrapper was successfully tested on OSX (10.6/10.7), Ubuntu (11.04) and Arch Linux.
+I basically took [osdf's code](https://github.com/osdf/py_bh_tsne) and made it pip compliant.
 
 Requirements
 ------------
 
-* [numpy](numpy.scipy.org)>=1.7.1
-* [scipy](http://www.scipy.org/)>=0.12.0
-* [cython](cython.org)>=0.19.1
+* [numpy](numpy.scipy.org) > =1.7.1
+* [scipy](http://www.scipy.org/) >= 0.12.0
+* [cython](cython.org) >= 0.19.1
 * [cblas](http://www.netlib.org/blas/) or [openblas](https://github.com/xianyi/OpenBLAS). Tested version is v0.2.5 and v0.2.6 (not necessary for OSX).
+
+[Anaconda](http://continuum.io/downloads) is recommended.
 
 Installation
 ------------
@@ -35,6 +35,16 @@ Or directly from the Github repository:
 
 ```
 pip install git+https://github.com/danielfrg/tsne.git
+```
+
+Or using docker (could be useful for testing):
+
+```
+$ docker build -t tsne .
+$ docker run -it -v /Users/drodriguez/workspace/tsne/:/tsne tsn
+
+# Inside Docker:
+$ python setup.py install
 ```
 
 Usage
@@ -57,4 +67,3 @@ More Information
 ----------------
 
 See *Barnes-Hut-SNE* (2013), L.J.P. van der Maaten. It is available on [arxiv](http://arxiv.org/abs/1301.3342).
-
