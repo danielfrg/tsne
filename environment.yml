@@ -1,6 +1,7 @@
 name: tsne-dev
 dependencies:
   - python=2.7
+  - cython
   - ipython
   - numpy
   - scipy

@@ -13,10 +13,13 @@ from Cython.Distutils import build_ext
 
 if sys.platform == 'darwin':
     # OS X
-    v, _, _ = platform.mac_ver()
-    v1, v2, v3 = [float(val) for val in v.split('.')]
+    version, _, _ = platform.mac_ver()
+    parts = version.split('.')
+    v1 = int(parts[0])
+    v2 = int(parts[1])
+    v3 = int(parts[2]) if len(parts) == 3 else None
 
-    if v2 == 10:
+    if v2 >= 10:
         # More than 10.10
         extra_compile_args=['-I/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/Headers']
     else:
