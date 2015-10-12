@@ -1,4 +1,6 @@
 include LICENSE.txt
+include requirements.txt
 include tsne/bh_tsne.pyx
-recursive-include tsne *.cpp *.hinclude versioneer.py
+recursive-include tsne *.cpp *.h
+include versioneer.py
 include tsne/_version.py
