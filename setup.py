@@ -9,7 +9,7 @@ from distutils.extension import Extension
 import versioneer
 import numpy
 from Cython.Distutils import build_ext
-
+from Cython.Build import cythonize
 
 if sys.platform == 'darwin':
     # OS X
@@ -26,12 +26,13 @@ if sys.platform == 'darwin':
         extra_compile_args=['-I/System/Library/Frameworks/vecLib.framework/Headers']
 
     ext_modules = [Extension(
-                   name='bh_sne',
+                   name='tsne/bh_sne',
                    sources=['tsne/bh_sne_src/quadtree.cpp', 'tsne/bh_sne_src/tsne.cpp', 'tsne/bh_sne.pyx'],
                    include_dirs=[numpy.get_include(), 'tsne/bh_sne_src/'],
                    extra_compile_args=extra_compile_args,
                    extra_link_args=['-Wl,-framework', '-Wl,Accelerate', '-lcblas'],
                    language='c++')]
+    ext_modules = cythonize(ext_modules)
 else:
     # LINUX
     ext_modules = [Extension(
