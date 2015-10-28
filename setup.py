@@ -1,9 +1,18 @@
 # encoding: utf-8
+
+"""
+To upload a new version:
+1. make clean
+2. git tag a new version: git tag v1.x.x
+3. python setup.py sdist
+4. python setup.py register upload
+"""
+
 import sys
 import platform
 
-from setuptools import find_packages
 from distutils.core import setup
+from setuptools import find_packages
 from distutils.extension import Extension
 
 import versioneer
@@ -48,6 +57,8 @@ with open('requirements.txt') as f:
 
 cmdclass = versioneer.get_cmdclass()
 cmdclass['build_ext'] = build_ext
+
+print '!!!!!!!!!!!!!', find_packages()
 
 setup(name='tsne',
       version=versioneer.get_version(),
