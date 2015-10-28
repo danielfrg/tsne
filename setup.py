@@ -58,8 +58,6 @@ with open('requirements.txt') as f:
 cmdclass = versioneer.get_cmdclass()
 cmdclass['build_ext'] = build_ext
 
-print '!!!!!!!!!!!!!', find_packages()
-
 setup(name='tsne',
       version=versioneer.get_version(),
       cmdclass=versioneer.get_cmdclass(),
