@@ -5,7 +5,7 @@ To upload a new version:
 1. make clean
 2. git tag a new version: git tag v1.x.x
 3. python setup.py sdist
-4. python setup.py register upload
+4. python setup.py sdist register upload
 """
 
 import sys
@@ -61,12 +61,11 @@ cmdclass['build_ext'] = build_ext
 setup(name='tsne',
       version=versioneer.get_version(),
       cmdclass=versioneer.get_cmdclass(),
-      description='TSNE implementations for python',
-      long_description='',
       author='Daniel Rodriguez',
       author_email='df.rodriguez@gmail.com',
       url='https://github.com/danielfrg/py_tsne',
-      license='Apache 2.0',
+      description='TSNE implementations for python',
+      license='Apache License Version 2.0, January 2004',
       packages=find_packages(),
       ext_modules=ext_modules,
       install_requires=required
