@@ -1,6 +1,9 @@
 Python-TSNE
 ===========
 
+[![travis-ci](https://api.travis-ci.org/danielfrg/tsne.svg)](https://travis-ci.org/danielfrg/tsne)
+
+
 Python library containing T-SNE algorithms.
 
 Algorithms
