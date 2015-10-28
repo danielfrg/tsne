@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 """
 To upload a new version:
 1. make clean
