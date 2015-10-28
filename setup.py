@@ -25,24 +25,23 @@ if sys.platform == 'darwin':
     else:
         extra_compile_args=['-I/System/Library/Frameworks/vecLib.framework/Headers']
 
-    ext_modules = [Extension(
-                   name='tsne/bh_sne',
+    ext_modules = [Extension(name='bh_sne',
                    sources=['tsne/bh_sne_src/quadtree.cpp', 'tsne/bh_sne_src/tsne.cpp', 'tsne/bh_sne.pyx'],
                    include_dirs=[numpy.get_include(), 'tsne/bh_sne_src/'],
                    extra_compile_args=extra_compile_args,
                    extra_link_args=['-Wl,-framework', '-Wl,Accelerate', '-lcblas'],
                    language='c++')]
-    ext_modules = cythonize(ext_modules)
 else:
     # LINUX
-    ext_modules = [Extension(
-                   name='bh_sne',
+    ext_modules = [Extension(name='bh_sne',
                    sources=['tsne/bh_sne_src/quadtree.cpp', 'tsne/bh_sne_src/tsne.cpp', 'tsne/bh_sne.pyx'],
                    include_dirs=[numpy.get_include(), '/usr/local/include', 'tsne/bh_sne_src/'],
                    library_dirs=['/usr/local/lib'],
                    extra_compile_args=['-msse2', '-O3', '-fPIC', '-w'],
                    extra_link_args=['-lcblas'],
                    language='c++')]
+
+ext_modules = cythonize(ext_modules)
 
 with open('requirements.txt') as f:
     required = f.read().splitlines()
