@@ -4,8 +4,11 @@ python:
   - "2.7"
   - "3.4"
 
-compiler:
-  - gcc
+addons:
+  apt:
+    packages:
+      - build-essential
+      - libatlas-base-dev
 
 sudo: false
 
