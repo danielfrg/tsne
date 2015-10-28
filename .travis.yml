@@ -28,4 +28,4 @@ script:
   - pwd
   - source activate test-environment
   - cd tsne/tests
-  - py.test
+  - py.test -s -vv
