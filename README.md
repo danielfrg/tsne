@@ -3,8 +3,10 @@ Python-TSNE
 
 [![travis-ci](https://api.travis-ci.org/danielfrg/tsne.svg)](https://travis-ci.org/danielfrg/tsne)
 
-
 Python library containing T-SNE algorithms.
+
+**Note:** [Scikit-learn v0.17](http://scikit-learn.org/stable/whats_new.html#version-0-17)
+includes TSNE algorithms and you should probably be using them instead of this.
 
 Algorithms
 ----------
