@@ -18,7 +18,7 @@ static inline double sign(double x) { return (x == .0 ? .0 : (x < .0 ? -1.0 : 1.
 class TSNE
 {    
 public:
-    void run(double* X, int N, int D, double* Y, int no_dims, double perplexity, double theta, unsigned int seed, unsigned int miter, unsigned int sliter, unsigned int msiter);
+    void run(double* X, int N, int D, double* Y, int no_dims, double perplexity, double theta, unsigned int seed, unsigned int miter, unsigned int sliter, unsigned int msiter, double m, double fm);
     bool load_data(double** data, int* n, int* d, double* theta, double* perplexity);
     void save_data(double* data, int* landmarks, double* costs, int n, int d);
 
