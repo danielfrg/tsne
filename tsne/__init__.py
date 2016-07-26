@@ -6,7 +6,7 @@ import sys
 from bh_sne import BH_SNE
 
 def bh_sne(data, pca_d=None, d=2, perplexity=30., theta=0.5,
-           random_state=None, copy_data=False):
+           random_state=None, copy_data=False, miter=1000, mliter=250, msiter=250):
     """
     Run Barnes-Hut T-SNE on _data_.
 
@@ -31,6 +31,9 @@ def bh_sne(data, pca_d=None, d=2, perplexity=30., theta=0.5,
 
     @param copy_data    Copy the data to prevent it from being modified
                         by the C code
+    @param miter     max_iter
+    @param sliter    stop_lying_iter
+    @param msiter    mom_switch_iter
     """
     N, _ = data.shape
 
@@ -56,7 +59,7 @@ def bh_sne(data, pca_d=None, d=2, perplexity=30., theta=0.5,
         seed = random_state.randint(2**32-1)
 
     tsne = BH_SNE()
-    Y = tsne.run(X, N, X.shape[1], d, perplexity, theta, seed)
+    Y = tsne.run(X, N, X.shape[1], d, perplexity, theta, seed, miter, mliter, msiter)
     return Y
 
 from ._version import get_versions
