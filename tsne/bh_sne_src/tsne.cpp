@@ -37,11 +37,11 @@ void TSNE::run(double* X, int N, int D, double* Y, int no_dims, double perplexit
     // Set learning parameters
     float total_time = .0;
     clock_t start, end;
-	int max_iter = miter;
-	int stop_lying_iter = mliter;
-	int mom_switch_iter = msiter;
-	double momentum = .5, final_momentum = .8;
-	double eta = 200.0;
+    int max_iter = miter;
+    int stop_lying_iter = mliter;
+    int mom_switch_iter = msiter;
+    double momentum = .5, final_momentum = .8;
+    double eta = 200.0;
     
     // Allocate some memory
     double* dY    = (double*) malloc(N * no_dims * sizeof(double));
