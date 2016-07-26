@@ -6,7 +6,7 @@ import sys
 from bh_sne import BH_SNE
 
 def bh_sne(data, pca_d=None, d=2, perplexity=30., theta=0.5,
-           random_state=None, copy_data=False, miter=1000, mliter=250, msiter=250):
+           random_state=None, copy_data=False, miter=1000, sliter=250, msiter=250):
     """
     Run Barnes-Hut T-SNE on _data_.
 
