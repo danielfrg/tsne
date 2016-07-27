@@ -717,22 +717,22 @@ void TSNE::symmetrizeMatrix(int** _row_P, int** _col_P, double** _val_P, int N) 
     free(row_counts); row_counts  = NULL;
 }
 
-// Compute squared Euclidean distance matrix (using BLAS)
+// Compute squared Euclidean distance matrix
 void TSNE::computeSquaredEuclideanDistance(double* X, int N, int D, double* DD) {
-    double* dataSums = (double*) calloc(N, sizeof(double));
-    if(dataSums == NULL) { printf("Memory allocation failed!\n"); exit(1); }
-    for(int n = 0; n < N; n++) {
-        for(int d = 0; d < D; d++) {
-            dataSums[n] += (X[n * D + d] * X[n * D + d]);
+    const double* XnD = X;
+    for(int n = 0; n < N; ++n, XnD += D) {
+        const double* XmD = XnD + D;
+        double* curr_elem = &DD[n*N + n];
+        *curr_elem = 0.0;
+        double* curr_elem_sym = curr_elem + N;
+        for(int m = n + 1; m < N; ++m, XmD+=D, curr_elem_sym+=N) {
+            *(++curr_elem) = 0.0;
+            for(int d = 0; d < D; ++d) {
+                *curr_elem += (XnD[d] - XmD[d]) * (XnD[d] - XmD[d]);
+            }
+            *curr_elem_sym = *curr_elem;
         }
     }
-    for(int n = 0; n < N; n++) {
-        for(int m = 0; m < N; m++) {
-            DD[n * N + m] = dataSums[n] + dataSums[m];
-        }
-    }
-    cblas_dgemm(CblasColMajor, CblasTrans, CblasNoTrans, N, N, D, -2.0, X, D, X, D, 1.0, DD, N);
-    free(dataSums); dataSums = NULL;
 }
 
 
