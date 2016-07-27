@@ -25,7 +25,7 @@ extern "C" {
 using namespace std;
 
 // Perform t-SNE
-void TSNE::run(double* X, int N, int D, double* Y, int no_dims, double perplexity, double theta, unsigned int seed, unsigned int miter, unsigned int sliter, unsigned int msiter, double m, double fm) {
+void TSNE::run(double* X, int N, int D, double* Y, int no_dims, double perplexity, double theta, unsigned int seed, unsigned int miter, unsigned int sliter, unsigned int msiter, double m, double fm, double alpha) {
     // Initalize the pseudorandom number generator
     srand(seed);
     
@@ -41,7 +41,7 @@ void TSNE::run(double* X, int N, int D, double* Y, int no_dims, double perplexit
     int stop_lying_iter = sliter;
     int mom_switch_iter = msiter;
     double momentum = m, final_momentum = fm;
-    double eta = 200.0;
+    double eta = alpha;
     
     // Allocate some memory
     double* dY    = (double*) malloc(N * no_dims * sizeof(double));
