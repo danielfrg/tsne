@@ -49,7 +49,7 @@ else:
                    include_dirs=[numpy.get_include(), '/usr/local/include', 'tsne/bh_sne_src/'],
                    library_dirs=['/usr/local/lib'],
                    extra_compile_args=['-msse2', '-O3', '-fPIC', '-w'],
-                   extra_link_args=['-lcblas'],
+                   extra_link_args=extra_link_args,
                    language='c++')]
 
 ext_modules = cythonize(ext_modules)
