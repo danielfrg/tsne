@@ -39,6 +39,10 @@ if sys.platform == 'darwin':
                    extra_link_args=['-Wl,-framework', '-Wl,Accelerate', '-lcblas'],
                    language='c++')]
 else:
+    extra_link_args = ['-lcblas']
+    if 'fedora' in platform.platform():
+        extra_link_args = ['-lsatlas']
+    
     # LINUX
     ext_modules = [Extension(name='bh_sne',
                    sources=['tsne/bh_sne_src/quadtree.cpp', 'tsne/bh_sne_src/tsne.cpp', 'tsne/bh_sne.pyx'],
