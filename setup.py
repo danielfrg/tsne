@@ -39,13 +39,19 @@ if sys.platform == 'darwin':
                    extra_link_args=['-Wl,-framework', '-Wl,Accelerate', '-lcblas'],
                    language='c++')]
 else:
+    extra_link_args = ['-lcblas']
+    dist = platform.linux_distribution(full_distribution_name=0)[0]
+    redhat_dists = set(["redhat", "fedora", "centos"])
+    if dist in redhat_dists:
+        extra_link_args = ['-lsatlas']
+    
     # LINUX
     ext_modules = [Extension(name='bh_sne',
                    sources=['tsne/bh_sne_src/quadtree.cpp', 'tsne/bh_sne_src/tsne.cpp', 'tsne/bh_sne.pyx'],
                    include_dirs=[numpy.get_include(), '/usr/local/include', 'tsne/bh_sne_src/'],
                    library_dirs=['/usr/local/lib'],
                    extra_compile_args=['-msse2', '-O3', '-fPIC', '-w'],
-                   extra_link_args=['-lcblas'],
+                   extra_link_args=extra_link_args,
                    language='c++')]
 
 ext_modules = cythonize(ext_modules)
