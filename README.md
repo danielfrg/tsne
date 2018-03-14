@@ -30,7 +30,13 @@ Requirements
 Installation
 ------------
 
-You can install the package from [PyPI](https://pypi.python.org/pypi):
+You can install the package from [Conda](https://conda.io/miniconda.html):
+
+```
+conda install -c maxibor tsne
+```
+
+Or from [PyPI](https://pypi.python.org/pypi):
 
 ```
 pip install tsne
