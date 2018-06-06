@@ -5,7 +5,7 @@ To upload a new version:
 3. python setup.py sdist
 4. python setup.py sdist register upload
 """
-
+import os
 import sys
 import platform
 
@@ -17,6 +17,16 @@ import versioneer
 import numpy
 from Cython.Distutils import build_ext
 from Cython.Build import cythonize
+
+
+def read_file(filename):
+    filepath = os.path.join(
+        os.path.dirname(os.path.dirname(__file__)), filename)
+    if os.path.exists(filepath):
+        return open(filepath).read()
+    else:
+        return ''
+
 
 if sys.platform == 'darwin':
     # OS X
@@ -63,14 +73,16 @@ cmdclass = versioneer.get_cmdclass()
 cmdclass['build_ext'] = build_ext
 
 setup(name='tsne',
-      version=versioneer.get_version(),
-      cmdclass=versioneer.get_cmdclass(),
-      author='Daniel Rodriguez',
-      author_email='df.rodriguez@gmail.com',
-      url='https://github.com/danielfrg/py_tsne',
-      description='TSNE implementations for python',
-      license='Apache License Version 2.0, January 2004',
-      packages=find_packages(),
-      ext_modules=ext_modules,
-      install_requires=required
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
+    author='Daniel Rodriguez',
+    author_email='df.rodriguez@gmail.com',
+    url='https://github.com/danielfrg/py_tsne',
+    description='TSNE implementations for python',
+    long_description=read_file('README.md'),
+    long_description_content_type="text/markdown",
+    license='Apache License Version 2.0',
+    packages=find_packages(),
+    ext_modules=ext_modules,
+    install_requires=required
 )
