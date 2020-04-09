@@ -1,0 +1,50 @@
+{% set name = "tsne" %}
+{% set data = load_setup_py_data() %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ data.get('version') }}
+
+source:
+  path: ./
+  # git_url: https://github.com/WiscEvan/tsne.git
+  # git_rev: {{ data.get('version') }}
+
+build:
+  noarch: generic
+  script: make install
+
+requirements:
+  host:
+    - python >=3.7
+    - pip
+    - setuptools
+    - Cython >=0.19.1
+    - numpy >=1.7.1
+    - scipy >=0.12.0
+    - openblas
+    - libcxx
+  run:
+    - python >=3.7
+    - numpy >=1.7.1
+    - scipy >=0.12.0
+    - openblas
+    - libcxx
+
+test:
+  imports:
+    - tsne
+
+about:
+  home: {{ data.get('url') }}
+  license: APACHE
+  license_file: LICENSE
+  description: {{ data.get('description') }}
+  summary: "Python library containing T-SNE algorithms"
+  doc_url: https://pypi.org/project/tsne/
+  dev_url: {{ data.get('url') }}
+
+extra:
+  maintainers:
+   - Jason C. Kwan
+   - Evan R. Rees

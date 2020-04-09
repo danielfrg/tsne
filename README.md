@@ -33,7 +33,7 @@ Installation
 You can install the package from [Conda](https://conda.io/miniconda.html):
 
 ```
-conda install -c maxibor tsne
+conda install -c erees tsne
 ```
 
 Or from [PyPI](https://pypi.python.org/pypi):
