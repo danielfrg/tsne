@@ -11,12 +11,12 @@ source:
   # git_rev: {{ data.get('version') }}
 
 build:
-  noarch: generic
-  script: make install
+  script: python setup.py build_ext --inplace; python setup.py install
 
 requirements:
   host:
-    - python >=3.7
+    - distro
+    - python 3.*
     - pip
     - setuptools
     - Cython >=0.19.1
@@ -25,7 +25,6 @@ requirements:
     - openblas
     - libcxx
   run:
-    - python >=3.7
     - numpy >=1.7.1
     - scipy >=0.12.0
     - openblas
@@ -46,5 +45,4 @@ about:
 
 extra:
   maintainers:
-   - Jason C. Kwan
    - Evan R. Rees
