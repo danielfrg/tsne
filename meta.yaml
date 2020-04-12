@@ -14,19 +14,21 @@ build:
   script: python setup.py build_ext --inplace; python setup.py install
 
 requirements:
+  build:
+    - {{ compiler('cxx') }}
   host:
     - distro
-    - python 3.*
+    - python
     - pip
     - setuptools
-    - Cython >=0.19.1
-    - numpy >=1.7.1
-    - scipy >=0.12.0
+    - cython
+    - numpy
+    - scipy
     - openblas
     - libcxx
   run:
-    - numpy >=1.7.1
-    - scipy >=0.12.0
+    - {{ pin_compatible('numpy') }}
+    - scipy
     - openblas
     - libcxx
 
