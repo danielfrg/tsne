@@ -1,9 +1,9 @@
 {% set name = "tsne" %}
-{% set data = load_setup_py_data() %}
+{% set version = "0.1.9" %}
 
 package:
   name: {{ name|lower }}
-  version: {{ data.get('version') }}
+  version: {{ version }}
 
 source:
   path: ./
@@ -21,7 +21,6 @@ requirements:
     - setuptools
     - cython
     - numpy
-    - scipy
     - openblas
     - libcxx
   run:
