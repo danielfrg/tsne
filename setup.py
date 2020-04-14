@@ -5,6 +5,9 @@ To upload a new version:
 3. python setup.py sdist
 4. python setup.py sdist register upload
 """
+
+
+import distro
 import os
 import sys
 import platform
@@ -32,9 +35,9 @@ if sys.platform == 'darwin':
     # OS X
     version, _, _ = platform.mac_ver()
     parts = version.split('.')
-    v1 = int(parts[0])
+    # v1 = int(parts[0])
     v2 = int(parts[1])
-    v3 = int(parts[2]) if len(parts) == 3 else None
+    # v3 = int(parts[2]) if len(parts) == 3 else None
 
     if v2 >= 10:
         # More than 10.10
@@ -50,11 +53,11 @@ if sys.platform == 'darwin':
                    language='c++')]
 else:
     extra_link_args = ['-lcblas']
-    dist = platform.linux_distribution(full_distribution_name=0)[0]
+    dist = distro.linux_distribution()[0].lower()
     redhat_dists = set(["redhat", "fedora", "centos"])
     if dist in redhat_dists:
         extra_link_args = ['-lsatlas']
-    
+
     # LINUX
     ext_modules = [Extension(name='bh_sne',
                    sources=['tsne/bh_sne_src/quadtree.cpp', 'tsne/bh_sne_src/tsne.cpp', 'tsne/bh_sne.pyx'],
