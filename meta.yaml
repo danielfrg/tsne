@@ -24,6 +24,7 @@ requirements:
     - openblas
     - libcxx
   run:
+    - python
     - {{ pin_compatible('numpy') }}
     - scipy
     - openblas

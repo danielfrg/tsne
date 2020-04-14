@@ -1,3 +1,11 @@
 python:
-    - 2.7
-    - 3.7
+    - 2.7.*
+    - 3.7.*
+
+numpy:
+  - 1.14
+
+cxx_compiler:
+  - gxx                        # [linux]
+  - clangxx                    # [osx]
+  - vs2017                     # [win]
