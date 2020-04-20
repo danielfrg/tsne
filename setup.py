@@ -7,7 +7,6 @@ To upload a new version:
 """
 
 
-import distro
 import os
 import sys
 import platform
@@ -53,10 +52,6 @@ if sys.platform == 'darwin':
                    language='c++')]
 else:
     extra_link_args = ['-lcblas']
-    # dist = distro.linux_distribution()[0].lower()
-    # redhat_dists = set(["redhat", "fedora", "centos"])
-    # if dist in redhat_dists:
-    #     extra_link_args = ['-lsatlas']
 
     # LINUX
     ext_modules = [Extension(name='bh_sne',
