@@ -26,7 +26,7 @@ install:
 
   - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION
   - source activate test-environment
-  - conda install -c conda-forge numpy cython scipy pytest scikit-learn distro
+  - conda install -c conda-forge numpy cython scipy pytest scikit-learn
   - python setup.py install
   - source deactivate
 
