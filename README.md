@@ -6,7 +6,7 @@ Python-TSNE
 Python library containing T-SNE algorithms.
 
 **Note:** [Scikit-learn v0.17](http://scikit-learn.org/stable/whats_new.html#version-0-17)
-includes TSNE algorithms and you should probably be using them instead of this.
+includes TSNE algorithms and you should probably be using that instead.
 
 Algorithms
 ----------
@@ -52,7 +52,7 @@ Or using docker (could be useful for testing):
 
 ```
 $ docker build -t tsne .
-$ docker run -it -v /Users/drodriguez/workspace/tsne/:/tsne tsn
+$ docker run -it -v /Users/drodriguez/workspace/tsne/:/workdir tsne
 
 # Inside Docker:
 $ python setup.py install
@@ -63,7 +63,7 @@ Usage
 
 Basic usage:
 
-```
+```python
 from tsne import bh_sne
 X_2d = bh_sne(X)
 ```
