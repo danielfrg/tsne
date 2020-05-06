@@ -6,6 +6,5 @@ def test_import():
     assert len(tsne.__version__) > 0
 
 
-
 def test_import_bh_tsne():
     from tsne import bh_sne

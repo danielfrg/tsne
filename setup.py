@@ -1,12 +1,11 @@
 import os
-import sys
 import platform
-
-from setuptools import find_packages, setup, Extension
+import sys
 
 import numpy
-from Cython.Distutils import build_ext
 from Cython.Build import cythonize
+from Cython.Distutils import build_ext
+from setuptools import Extension, find_packages, setup
 
 setup_dir = os.path.abspath(os.path.dirname(__file__))
 
@@ -28,40 +27,64 @@ def parse_git(root, **kwargs):
     return parse(root, **kwargs)
 
 
-if sys.platform == 'darwin':
+if sys.platform == "darwin":
     # Platform: Mac OS
     version, _, _ = platform.mac_ver()
-    parts = version.split('.')
+    parts = version.split(".")
     major = int(parts[0])
     minor = int(parts[1])
     patch = int(parts[2]) if len(parts) == 3 else None
 
     if minor >= 15:
         # Greater than Mac OS: 10.15
-        extra_compile_args = ['-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Accelerate.framework/Versions/Current/Frameworks/vecLib.framework/Headers/']
+        extra_compile_args = [
+            "-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Accelerate.framework/Versions/Current/Frameworks/vecLib.framework/Headers/"
+        ]
     elif minor >= 10:
         # Greater than Mac OS: 10.10
-        extra_compile_args = ['-I/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/Current/Headers']
+        extra_compile_args = [
+            "-I/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/Current/Headers"
+        ]
     else:
-        extra_compile_args = ['-I/System/Library/Frameworks/vecLib.framework/Headers']
+        extra_compile_args = ["-I/System/Library/Frameworks/vecLib.framework/Headers"]
 
-    ext_modules = [Extension(name='bh_sne',
-                             sources=['tsne/includes/bh_tsne/quadtree.cpp', 'tsne/includes/bh_tsne/tsne.cpp', 'tsne/bh_sne.pyx'],
-                             include_dirs=[numpy.get_include(), 'tsne/includes/bh_tsne/'],
-                             extra_compile_args=extra_compile_args,
-                             extra_link_args=['-Wl,-framework', '-Wl,Accelerate', '-lcblas'],
-                             language='c++')]
+    ext_modules = [
+        Extension(
+            name="bh_sne",
+            sources=[
+                "tsne/includes/bh_tsne/quadtree.cpp",
+                "tsne/includes/bh_tsne/tsne.cpp",
+                "tsne/bh_sne.pyx",
+            ],
+            include_dirs=[numpy.get_include(), "tsne/includes/bh_tsne/"],
+            extra_compile_args=extra_compile_args,
+            extra_link_args=["-Wl,-framework", "-Wl,Accelerate", "-lcblas"],
+            language="c++",
+        )
+    ]
 else:
     # Platform: Linux
-    extra_link_args = ['-lcblas']
+    extra_link_args = ["-lcblas"]
 
-    ext_modules = [Extension(name='bh_sne',
-                             sources=['tsne/includes/bh_tsne/quadtree.cpp', 'tsne/includes/bh_tsne/tsne.cpp', 'tsne/bh_sne.pyx'],
-                             include_dirs=[numpy.get_include(), '/usr/local/include', 'tsne/includes/bh_tsne/'],
-                             library_dirs=['/usr/local/lib'],
-                             extra_compile_args=['-msse2', '-O3', '-fPIC', '-w'],
-                             extra_link_args=extra_link_args,
-                             language='c++')]
+    ext_modules = [
+        Extension(
+            name="bh_sne",
+            sources=[
+                "tsne/includes/bh_tsne/quadtree.cpp",
+                "tsne/includes/bh_tsne/tsne.cpp",
+                "tsne/bh_sne.pyx",
+            ],
+            include_dirs=[
+                numpy.get_include(),
+                "/usr/local/include",
+                "tsne/includes/bh_tsne/",
+            ],
+            library_dirs=["/usr/local/lib"],
+            extra_compile_args=["-msse2", "-O3", "-fPIC", "-w"],
+            extra_link_args=extra_link_args,
+            language="c++",
+        )
+    ]
 
 
 setup(

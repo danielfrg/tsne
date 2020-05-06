@@ -3,8 +3,15 @@ import scipy.linalg as la
 from bh_sne import BH_SNE
 
 
-def bh_sne(data, pca_d=None, d=2, perplexity=30., theta=0.5,
-           random_state=None, copy_data=False):
+def bh_sne(
+    data,
+    pca_d=None,
+    d=2,
+    perplexity=30.0,
+    theta=0.5,
+    random_state=None,
+    copy_data=False,
+):
     """
     Run Barnes-Hut T-SNE on _data_.
 
@@ -49,9 +56,9 @@ def bh_sne(data, pca_d=None, d=2, perplexity=30., theta=0.5,
         X = np.dot(data, u)
 
     if random_state is None:
-        seed = np.random.randint(2**32-1)
+        seed = np.random.randint(2 ** 32 - 1)
     else:
-        seed = random_state.randint(2**32-1)
+        seed = random_state.randint(2 ** 32 - 1)
 
     tsne = BH_SNE()
     Y = tsne.run(X, N, X.shape[1], d, perplexity, theta, seed)

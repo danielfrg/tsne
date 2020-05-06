@@ -1,4 +1,3 @@
-
 def test_seed():
     from tsne import bh_sne
     from sklearn.datasets import load_iris
