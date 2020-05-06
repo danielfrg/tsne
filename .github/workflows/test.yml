@@ -19,7 +19,7 @@ jobs:
 
     - name: Install BLAS
       run: |
-      sudo apt-get install libatlas-base-dev
+        sudo apt-get install libatlas-base-dev
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
