@@ -11,6 +11,7 @@ def bh_sne(
     theta=0.5,
     random_state=None,
     copy_data=False,
+    verbose=False
 ):
     """
     Run Barnes-Hut T-SNE on _data_.
@@ -36,6 +37,8 @@ def bh_sne(
 
     @param copy_data    Copy the data to prevent it from being modified
                         by the C code
+
+    @param verbose      Verbose output from the training process
     """
     N, _ = data.shape
 
@@ -60,6 +63,6 @@ def bh_sne(
     else:
         seed = random_state.randint(2 ** 32 - 1)
 
-    tsne = BH_SNE()
-    Y = tsne.run(X, N, X.shape[1], d, perplexity, theta, seed)
+    bh_tsne = BH_SNE()
+    Y = bh_tsne.run(X, N, X.shape[1], d, perplexity, theta, seed, verbose)
     return Y

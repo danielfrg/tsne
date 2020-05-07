@@ -17,5 +17,8 @@ cython
 numpy
 scipy
 scikit-learn
+matplotlib
+notebook
+jupyterlab
 
 # This project pip deps

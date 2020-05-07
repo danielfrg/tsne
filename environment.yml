@@ -22,6 +22,9 @@ dependencies:
   - numpy
   - scipy
   - scikit-learn
-  
+  - matplotlib
+  - notebook
+  - jupyterlab
+
   - pip:
     # This project pip deps
