@@ -1,7 +1,0 @@
-include LICENSE.txt
-include requirements.txt
-include tsne/bh_sne.pyx
-recursive-include tsne/bh_sne_src *
-exclude tsne/bh_sne.cpp
-include versioneer.py
-include tsne/_version.py

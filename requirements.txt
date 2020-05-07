@@ -1,3 +1,24 @@
-Cython>=0.19.1
-numpy>=1.7.1
-scipy>=0.12.0
+# Used for CI - It should match environment.yml
+
+# Base conda deps
+setuptools
+setuptools-scm
+pylint
+black
+flake8
+isort
+twine
+wheel
+pytest
+pytest-cov
+
+# This project conda deps
+cython
+numpy
+scipy
+scikit-learn
+matplotlib
+notebook
+jupyterlab
+
+# This project pip deps
