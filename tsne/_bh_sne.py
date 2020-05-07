@@ -11,7 +11,7 @@ def bh_sne(
     theta=0.5,
     random_state=None,
     copy_data=False,
-    verbose=False
+    verbose=False,
 ):
     """
     Run Barnes-Hut T-SNE on _data_.
