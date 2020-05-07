@@ -103,7 +103,7 @@ class build_ext(_build_ext):
 
 setup(
     name="tsne",
-    packages=find_packages() + ["tsne.tests"],
+    packages=find_packages(),
     zip_safe=False,
     include_package_data=True,
     package_data={"tsne": ["includes/*"]},
@@ -127,11 +127,11 @@ setup(
     maintainer="Daniel Rodriguez",
     maintainer_email="daniel@danielfrg.com",
     url="https://github.com/danielfrg/tsne",
+    keywords=["TSNE", "algorithms", "numpy", "cython"],
     classifiers=[
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
     ],
-    keywords=["TSNE", "algorithms", "numpy", "cython"],
 )
