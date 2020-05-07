@@ -20,4 +20,4 @@ except ImportError:
         __version__ = None
 
 
-from tsne._bh_sne import bh_sne
+from tsne._bh_sne import bh_sne  # noqa

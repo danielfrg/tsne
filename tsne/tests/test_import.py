@@ -7,4 +7,4 @@ def test_import():
 
 
 def test_import_bh_tsne():
-    from tsne import bh_sne
+    from tsne import bh_sne  # noqa

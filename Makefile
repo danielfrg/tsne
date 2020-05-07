@@ -55,7 +55,7 @@ package:  ## Build Python package (sdist)
 
 .PHONY: check
 check:  ## Check linting
-	# @flake8 tsne
+	@flake8 tsne
 	@isort --check-only --diff --recursive --project tsne --section-default THIRDPARTY tsne .
 	@black --check tsne .
 
