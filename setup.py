@@ -126,13 +126,6 @@ setup(
     ext_modules=[Extension("__dummy__", sources=[])],
     cmdclass={"build_ext": build_ext},
     # entry_points = {},
-    use_scm_version={
-        "root": setup_dir,
-        "parse": parse_git,
-        "write_to": os.path.join(
-            scm_version_write_to_prefix, "tsne/_generated_version.py"
-        ),
-    },
     options={"bdist_wheel": {"universal": "1"}},
     python_requires=">=3.6",
     setup_requires=["setuptools_scm"],
