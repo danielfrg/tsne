@@ -5,15 +5,22 @@
 
 ```
 export VERSION=1.0.0
-git commit -am "Release ${VERSION}" --allow-empty
-git tag -a ${VERSION} -m "${VERSION}"
+
+git checkout -b release-${VERSION}
+git commit -am "Release ${VERSION}.rc1" --allow-empty
+git tag -a ${VERSION}.rc1 -m "${VERSION}.rc1"
+
+make build
+make upload test-pypi
+```
+
+```
 git push origin ${VERSION}
 git push
 ```
 
 ```
-make clean
-make build
+
 make upload-pypi
 
 # Upload to test PyPI
