@@ -1,5 +1,4 @@
 [build-system]
-# Minimum requirements for the build system to execute.
 requires = [
     "setuptools",
     "setuptools_scm",
@@ -8,6 +7,10 @@ requires = [
     "numpy==1.14.5; python_version<'3.7'",
     "numpy==1.16.0; python_version>='3.7'",
 ]
+
+[tool.coverage.run]
+parallel = true
+branch = true
 
 [tool.setuptools_scm]
 write_to = "tsne/_generated_version.py"
@@ -30,3 +33,12 @@ exclude = '''
   | dist
 )
 '''
+
+[tool.isort]
+# https://black.readthedocs.io/en/stable/the_black_code_style.html#how-black-wraps-lines
+multi_line_output=3
+lines_after_imports = 2
+force_grid_wrap = 0
+include_trailing_comma = "true"
+use_parentheses = "true"
+line_length = 88

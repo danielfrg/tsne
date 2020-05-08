@@ -8,6 +8,7 @@ from Cython.Build import cythonize
 from Cython.Distutils import build_ext as _build_ext
 from setuptools import Extension, find_packages, setup
 
+
 if Cython.__version__ < "0.29":
     raise Exception("Please upgrade to Cython 0.29 or newer")
 
@@ -104,6 +105,7 @@ class build_ext(_build_ext):
 setup(
     name="tsne",
     packages=find_packages(),
+    # package_dir={"": "src"},
     zip_safe=False,
     include_package_data=True,
     package_data={"tsne": ["includes/*"]},
@@ -117,9 +119,11 @@ setup(
         "parse": parse_git,
         "write_to": os.path.join("tsne/_generated_version.py"),
     },
+    options={"bdist_wheel": {"universal": "1"}},
     python_requires=">=3.6",
     setup_requires=["setuptools_scm"],
     install_requires=read_file("requirements.package.txt").splitlines(),
+    extras_require={"dev": read_file("requirements.txt").splitlines()},
     description="TSNE algorithms",
     long_description=read_file("README.md"),
     long_description_content_type="text/markdown",
