@@ -14,7 +14,8 @@ make build
 make upload-test
 
 # Create venv and install rc version
-pip install --extra-index-url=https://test.pypi.org/simple tsne==${VERSION}rc0
+pip install --extra-index-url=https://test.pypi.org/simple 'tsne[test]'==${VERSION}rc0
+pytest --pyargs tsne
 
 # Delete rc tag
 git tag -d ${VERSION}.rc0
