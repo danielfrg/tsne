@@ -56,14 +56,14 @@ package:  ## Build Python package (sdist)
 .PHONY: check
 check:  ## Check linting
 	@flake8 tsne
-	@isort --check-only --diff --recursive --project tsne --section-default THIRDPARTY tsne .
-	@black --check tsne .
+	@isort --check-only --diff --recursive --project tsne --section-default THIRDPARTY .
+	@black --check .
 
 
 .PHONY: fmt
 fmt:  ## Format source
-	@isort --recursive --project tsne --section-default THIRDPARTY tsne .
-	@black tsne .
+	@isort --recursive --project tsne --section-default THIRDPARTY .
+	@black .
 
 
 .PHONY: upload-pypi
@@ -73,13 +73,18 @@ upload-pypi:  ## Upload package to PyPI
 
 .PHONY: upload-test
 upload-test:  ## Upload package to test PyPI
-	twine upload --repository testpypi dist/*.tar.gz
+	twine upload --repository test dist/*.tar.gz
 
 
 .PHONY: test
 test:  ## Run tests
-	pytest -s -vv tsne/tests -k $(TEST_FILTER)
+	pytest -k $(TEST_FILTER)
 
+
+.PHONY: report
+report:  ## Generate coverage reports
+	@coverage xml
+	@coverage html
 
 # ------------------------------------------------------------------------------
 # Project specific
