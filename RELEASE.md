@@ -7,7 +7,7 @@ export VERSION=1.0.0
 git checkout -b release-${VERSION}
 
 git commit -am "Release ${VERSION}.rc0" --allow-empty
-git tag -a ${VERSION}.rc0
+git tag ${VERSION}.rc0
 
 make build
 make upload-test
@@ -30,7 +30,7 @@ Merge branch when CI passes
 export VERSION=1.0.0
 
 git commit -am "Release ${VERSION}" --allow-empty
-git tag -a ${VERSION}
+git tag ${VERSION}
 
 make build
 make upload-pypi
