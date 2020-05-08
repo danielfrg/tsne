@@ -7,8 +7,8 @@
 export VERSION=1.0.0
 
 git checkout -b release-${VERSION}
-git commit -am "Release ${VERSION}.rc1" --allow-empty
-git tag -a ${VERSION}.rc1 -m "${VERSION}.rc1"
+git commit -am "Release ${VERSION}.dev0" --allow-empty
+git tag -a ${VERSION}.dev0 -m "${VERSION}.dev0"
 
 make build
 make upload test-pypi
