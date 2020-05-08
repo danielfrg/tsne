@@ -34,5 +34,6 @@ git tag ${VERSION}
 
 make build
 make upload-pypi
-git push --tags
+git push origin ${VERSION}
+git push
 ```
