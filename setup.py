@@ -40,14 +40,7 @@ if not os.path.exists(".git") and not os.environ.get(
         )
 
 
-def parse_git(root, **kwargs):
-    """
-    Parse function for setuptools_scm
-    """
-    from setuptools_scm.git import parse
 
-    kwargs["describe_command"] = "git describe --dirty --tags --long"
-    return parse(root, **kwargs)
 
 
 class build_ext(_build_ext):
