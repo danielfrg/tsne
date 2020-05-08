@@ -18,12 +18,12 @@ clean:  ## Clean build files
 	@find . -type f -name '*.py[co]' -delete
 	@find . -type d -name __pycache__ -exec rm -rf {} +
 	@find . -type d -name .ipynb_checkpoints -exec rm -rf {} +
-	@rm *.so tsne/bh_sne.cpp
 
 
 .PHONY: cleanall
 cleanall: clean   ## Clean everything
 	@rm -rf *.egg-info
+	@rm *.so tsne/bh_sne.cpp
 
 
 .PHONY: help
