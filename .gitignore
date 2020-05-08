@@ -110,5 +110,6 @@ dmypy.json
 _generated_version.py
 
 ### Project specific ###
+tsne/bh_sne.c
 tsne/bh_sne.cpp
 *.pkl.gz*
