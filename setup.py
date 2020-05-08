@@ -46,7 +46,7 @@ def parse_git(root, **kwargs):
     """
     from setuptools_scm.git import parse
 
-    kwargs["describe_command"] = "git describe --dirty --tags --long --match 'tsne-[0-9].*'"
+    kwargs["describe_command"] = "git describe --dirty --tags --long"
     return parse(root, **kwargs)
 
 
