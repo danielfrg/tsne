@@ -114,13 +114,8 @@ class build_ext(_build_ext):
         _build_ext.build_extensions(self)
 
 
-def local_scheme(version):
-    return ""
-
-
 setup(
     name="tsne",
-    use_scm_version={"local_scheme": local_scheme},
     packages=find_packages(),
     # package_dir={"": "src"},
     zip_safe=False,
