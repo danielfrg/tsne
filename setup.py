@@ -21,16 +21,10 @@ def read_file(filename):
         return file.read()
 
 
-scm_version_write_to_prefix = os.environ.get(
-    "SETUPTOOLS_SCM_VERSION_WRITE_TO_PREFIX", setup_dir
-)
-
 # If the event of not running from a git clone (e.g. from a git archive
 # or a Python sdist), see if we can set the version number ourselves
 default_version = "0.3.0-SNAPSHOT"
-if not os.path.exists(".git") and not os.environ.get(
-    "SETUPTOOLS_SCM_PRETEND_VERSION"
-):
+if not os.path.exists(".git") and not os.environ.get("SETUPTOOLS_SCM_PRETEND_VERSION"):
     if os.path.exists("PKG-INFO"):
         # We're probably in a Python sdist, setuptools_scm will handle fine
         pass
@@ -38,9 +32,6 @@ if not os.path.exists(".git") and not os.environ.get(
         os.environ["SETUPTOOLS_SCM_PRETEND_VERSION"] = default_version.replace(
             "-SNAPSHOT", "a0"
         )
-
-
-
 
 
 class build_ext(_build_ext):
