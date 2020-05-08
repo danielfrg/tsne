@@ -1,5 +1,0 @@
-[run]
-omit =
-    tsne/tests/*
-source =
-    tsne
