@@ -107,6 +107,7 @@ class build_ext(_build_ext):
 
 setup(
     name="tsne",
+    use_scm_version=True,
     packages=find_packages(),
     # package_dir={"": "src"},
     zip_safe=False,
