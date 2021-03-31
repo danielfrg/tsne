@@ -14,7 +14,7 @@ write_to = "tsne/_generated_version.py"
 [tool.pytest.ini_options]
 norecursedirs = ".git,dist,build,env,venv"
 addopts = "tsne/tests -s -vv --cov-config=pyproject.toml --cov=tsne --cov-report term-missing"
-markers = [""]
+markers = []
 
 [tool.coverage.run]
 parallel = true
