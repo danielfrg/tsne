@@ -114,7 +114,7 @@ setup(
     setup_requires=["setuptools_scm"],
     install_requires=read_file("requirements.txt").splitlines(),
     extras_require={
-        "test": ["pytest"],
+        "test": ["pytest", "pytest-cov", "toml"],
         "dev": read_file("requirements-dev.txt").splitlines(),
     },
     description="TSNE algorithms",
