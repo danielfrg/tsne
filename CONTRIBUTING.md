@@ -6,7 +6,7 @@ Create Python env
 
 ```
 make env
-conda activate s3contents
+conda activate word2vec
 ```
 
 Install package for developmentt
@@ -15,9 +15,7 @@ Install package for developmentt
 make develop
 ```
 
-## Testing
-
-Run tests
+## Tests
 
 ```
 make test

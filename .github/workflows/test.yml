@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.7, 3.8]
+        python-version: [3.7, 3.8, 3.9]
 
     steps:
     - uses: actions/checkout@v2
@@ -24,7 +24,7 @@ jobs:
       run: |
         sudo apt-get install libatlas-base-dev
 
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Setup Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
@@ -52,14 +52,10 @@ jobs:
         pip install dist/*.tar.gz
         pip freeze
 
-    - name: Check linting
-      run: |
-        # make check
-
     - name: Run tests
       if: always()
       run: |
-        make test
+        make test-all
         make report
 
     - name: Codecov

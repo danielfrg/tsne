@@ -94,6 +94,9 @@ class build_ext(_build_ext):
         _build_ext.build_extensions(self)
 
 
+# Dummy extension to trigger build_ext
+ext_module = Extension("__dummy__", sources=[])
+
 setup(
     name="tsne",
     use_scm_version=True,
@@ -103,8 +106,7 @@ setup(
     include_package_data=True,
     package_data={"tsne": ["includes/*"]},
     # data_files=data_files,
-    # Dummy extension to trigger build_ext
-    ext_modules=[Extension("__dummy__", sources=[])],
+    ext_modules=[ext_module],
     cmdclass={"build_ext": build_ext},
     # entry_points = {},
     options={"bdist_wheel": {"universal": "1"}},
