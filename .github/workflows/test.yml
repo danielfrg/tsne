@@ -49,7 +49,6 @@ jobs:
 
     - name: Install package
       run: |
-        make build
         pip install dist/*.tar.gz
         pip freeze
 
