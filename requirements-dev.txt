@@ -1,0 +1,26 @@
+# Used for CI: It should match environment.yml
+
+# Dev tools
+setuptools
+setuptools_scm
+pylint
+flake8
+black
+isort
+twine
+wheel
+
+# Package deps
+cython>=0.19.1
+numpy>=1.7.1
+scipy>=0.12.0
+
+# Testing
+pytest
+pytest-cov
+
+# Examples
+notebook
+jupyterlab
+scikit-learn
+matplotlib

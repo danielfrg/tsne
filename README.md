@@ -1,8 +1,9 @@
 # Python-TSNE
-[![PyPI](https://badge.fury.io/py/tsne.svg)](https://pypi.org/project/tsne/)
-![test](https://github.com/danielfrg/tsne/workflows/test/badge.svg)
-[![Coverage Status](https://codecov.io/gh/danielfrg/tsne/branch/master/graph/badge.svg)](https://codecov.io/gh/danielfrg/tsne?branch=master)
-[![License](https://img.shields.io/:license-Apache%202-blue.svg)](http://github.com/danielfrg/tsne/blob/master/LICENSE.txt)
+
+[![pypi](https://badge.fury.io/py/tsne.svg)](https://pypi.org/project/tsne/)
+![build](https://github.com/danielfrg/tsne/workflows/test/badge.svg)
+[![coverage](https://codecov.io/gh/danielfrg/tsne/branch/master/graph/badge.svg)](https://codecov.io/gh/danielfrg/tsne?branch=master)
+[![license](https://img.shields.io/:license-Apache%202-blue.svg)](http://github.com/danielfrg/tsne/blob/master/LICENSE.txt)
 
 Python library containing T-SNE algorithms.
 

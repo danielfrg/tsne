@@ -1,12 +1,20 @@
 [build-system]
 requires = [
-    "setuptools",
-    "setuptools_scm",
+    "setuptools>=42",
+    "setuptools_scm[toml]>=3.4",
     "wheel",
     "cython >= 0.29",
     "numpy==1.14.5; python_version<'3.7'",
     "numpy==1.16.0; python_version>='3.7'",
 ]
+
+[tool.setuptools_scm]
+write_to = "tsne/_generated_version.py"
+
+[tool.pytest.ini_options]
+norecursedirs = ".git,dist,build,env,venv"
+addopts = "tsne/tests -s -vv --cov-config=pyproject.toml --cov=tsne --cov-report term-missing"
+markers = [""]
 
 [tool.coverage.run]
 parallel = true
@@ -16,11 +24,8 @@ plugins = ["Cython.Coverage"]
 [tool.coverage.report]
 omit = ["tsne/_generated_version.py", "tsne/tests/*"]
 
-[tool.setuptools_scm]
-write_to = "tsne/_generated_version.py"
-
 [tool.black]
-target-version = ["py36", "py37", "py38"]
+target-version = ["py37", "py38"]
 exclude = '''
 (
     asv_bench/env
@@ -40,7 +45,7 @@ exclude = '''
 
 [tool.isort]
 # https://black.readthedocs.io/en/stable/the_black_code_style.html#how-black-wraps-lines
-multi_line_output=3
+multi_line_output = 3
 lines_after_imports = 2
 force_grid_wrap = 0
 include_trailing_comma = "true"

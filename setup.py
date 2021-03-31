@@ -4,7 +4,6 @@ import sys
 
 import Cython
 import pkg_resources
-from Cython.Build import cythonize
 from Cython.Distutils import build_ext as _build_ext
 from setuptools import Extension, find_packages, setup
 
@@ -31,9 +30,9 @@ class build_ext(_build_ext):
             # Platform: Mac OS
             version, _, _ = platform.mac_ver()
             parts = version.split(".")
-            major = int(parts[0])
+            # major = int(parts[0])
             minor = int(parts[1])
-            patch = int(parts[2]) if len(parts) == 3 else None
+            # patch = int(parts[2]) if len(parts) == 3 else None
 
             if minor >= 15:
                 # Greater than Mac OS: 10.15
@@ -75,7 +74,10 @@ class build_ext(_build_ext):
                     "tsne/includes/bh_tsne/tsne.cpp",
                     "tsne/bh_sne.pyx",
                 ],
-                include_dirs=["/usr/local/include", "tsne/includes/bh_tsne/",],
+                include_dirs=[
+                    "/usr/local/include",
+                    "tsne/includes/bh_tsne/",
+                ],
                 library_dirs=["/usr/local/lib"],
                 extra_compile_args=["-msse2", "-O3", "-fPIC", "-w"],
                 extra_link_args=extra_link_args,
@@ -106,7 +108,7 @@ setup(
     cmdclass={"build_ext": build_ext},
     # entry_points = {},
     options={"bdist_wheel": {"universal": "1"}},
-    python_requires=">=3.6",
+    python_requires=">=3.7",
     setup_requires=["setuptools_scm"],
     install_requires=read_file("requirements-package.txt").splitlines(),
     extras_require={
@@ -123,8 +125,8 @@ setup(
     keywords=["TSNE", "algorithms", "numpy", "cython"],
     classifiers=[
         "License :: OSI Approved :: Apache Software License",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
     ],
 )

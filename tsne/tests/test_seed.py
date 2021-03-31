@@ -1,7 +1,8 @@
 def test_seed():
-    from tsne import bh_sne
-    from sklearn.datasets import load_iris
     import numpy as np
+    from sklearn.datasets import load_iris
+
+    from tsne import bh_sne
 
     iris = load_iris()
 
