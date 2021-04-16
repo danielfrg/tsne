@@ -1,7 +1,7 @@
 # Python-TSNE
 
 [![pypi](https://badge.fury.io/py/tsne.svg)](https://pypi.org/project/tsne/)
-![build](https://github.com/danielfrg/tsne/workflows/test/badge.svg)
+[![build](https://github.com/danielfrg/tsne/workflows/test/badge.svg)](https://github.com/danielfrg/tsne/actions/workflows/test.yml)
 [![coverage](https://codecov.io/gh/danielfrg/tsne/branch/master/graph/badge.svg)](https://codecov.io/gh/danielfrg/tsne?branch=master)
 [![license](https://img.shields.io/:license-Apache%202-blue.svg)](http://github.com/danielfrg/tsne/blob/master/LICENSE.txt)
 
