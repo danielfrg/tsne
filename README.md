@@ -1,3 +1,10 @@
+# NOT MAINTAINED
+
+- I have not used this project myself on a long time
+- No issues or PRs can be created
+- At the time of writting this April 6, 2023 - The lastest release on PyPI (`0.3.1`) works as intented
+- I recommend moving to a native solution to other frameworks such as Tensorflow or PyTorch
+
 # Python-TSNE
 
 [![pypi](https://badge.fury.io/py/tsne.svg)](https://pypi.org/project/tsne/)
